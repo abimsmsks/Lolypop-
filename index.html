@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>To My Lollipop ❤️</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#fff5f3;color:#4b1725;font-family:Georgia,serif}
+.page{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:25px}
+.card{width:min(92vw,620px);padding:42px 25px;border:1px solid #e7b8c2;border-radius:30px;background:#fffdfd;text-align:center;box-shadow:0 18px 55px rgba(120,20,50,.12)}
+.heart{font-size:78px;animation:pulse 1.3s infinite}
+@keyframes pulse{50%{transform:scale(1.12)}}
+.script{font-family:"Brush Script MT",cursive;font-size:50px;color:#a51b45;margin:10px 0 20px}
+p{font-size:19px;line-height:1.8}
+button{border:0;background:#a51b45;color:white;border-radius:40px;padding:17px 30px;font-size:18px;box-shadow:0 8px 25px rgba(165,27,69,.25)}
+#inside{display:none}
+.letter{background:#fff8f6;border:1px solid #edcbd1;border-radius:22px;padding:25px;text-align:left}
+.photos{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.photos div{height:180px;background:#f5dfe2;border-radius:18px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.photos img{width:100%;height:100%;object-fit:cover}
+.heartfall{position:fixed;top:-30px;pointer-events:none;animation:fall 4s linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg);opacity:0}}
+section{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:25px}
+</style>
+</head>
+<body>
+<section id="welcome">
+<div class="card">
+<div class="heart">❤️</div>
+<div class="script">To My Lollipop</div>
+<p>From Motu, with a little piece of my heart.</p>
+<button id="openBtn">Tap to open 💌</button>
+</div>
+</section>
+
+<div id="inside">
+<section>
+<div class="card">
+<div class="script">For you, Lollipop ❤️</div>
+<p>Not a birthday.<br>Not an anniversary.<br>Just a normal day...</p>
+<p>Because you deserve to be reminded that you are loved on ordinary days too.</p>
+<button onclick="document.getElementById('letter').scrollIntoView({behavior:'smooth'})">Read my letter 💌</button>
+</div>
+</section>
+
+<section id="letter">
+<div class="card">
+<div class="script">My little letter</div>
+<div class="letter">
+<p>If only I could,<br>
+I would absorb all your pain<br>
+And return it to you<br>
+as <b>loveeee</b> as I can. ❤️</p>
+<p>I wish I could take away every moment that hurts you and replace it with all the warmth, peace and happiness you deserve.</p>
+<p>You don't need a special day for me to tell you this.</p>
+<p><b>You are my Lollipop, and I will always want to see you smile.</b> 🫶</p>
+<p style="text-align:right">— Motu ❤️</p>
+</div>
+</div>
+</section>
+
+<section>
+<div class="card">
+<div class="script">Our memories 📸</div>
+<p>Add your photos here later.</p>
+<div class="photos">
+<div><img src="photo1.jpg" onerror="this.remove();this.parentNode.innerHTML='📷 Photo 1'"></div>
+<div><img src="photo2.jpg" onerror="this.remove();this.parentNode.innerHTML='📷 Photo 2'"></div>
+<div><img src="photo3.jpg" onerror="this.remove();this.parentNode.innerHTML='📷 Photo 3'"></div>
+<div><img src="photo4.jpg" onerror="this.remove();this.parentNode.innerHTML='📷 Photo 4'"></div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="card">
+<div class="script">A song for you 🎵</div>
+<p>“Yo Hawa Lai” — Bikki Gurung</p>
+<audio controls loop style="width:100%"><source src="song.mp3" type="audio/mpeg"></audio>
+<p style="font-size:14px">Put your own licensed copy of the song in this folder as <b>song.mp3</b>.</p>
+<div class="script" style="font-size:36px">I love you, Lollipop ❤️</div>
+</div>
+</section>
+</div>
+
+<script>
+document.getElementById("openBtn").addEventListener("click",function(){
+ document.getElementById("welcome").style.display="none";
+ document.getElementById("inside").style.display="block";
+ window.scrollTo(0,0);
+ for(let i=0;i<25;i++) setTimeout(()=>{
+  let h=document.createElement("div");h.className="heartfall";
+  h.textContent=["❤️","💕","💗","🌸"][Math.floor(Math.random()*4)];
+  h.style.left=Math.random()*100+"vw";
+  h.style.fontSize=(15+Math.random()*22)+"px";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),4500);
+ },i*80);
+});
+</script>
+</body>
+</html>
